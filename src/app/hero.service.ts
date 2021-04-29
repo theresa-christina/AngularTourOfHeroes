@@ -5,6 +5,8 @@
 import { Injectable } from '@angular/core';
 import { Hero } from './hero';
 import { HEROES } from './mock-heroes';
+import { Observable, of } from 'rxjs';
+import { MessagesService } from './messages.service';
 
 /** Must register w/ a provider b4 it can be injected into HeroesComponent */
 /** Provider creates/delivers a service */
@@ -15,9 +17,13 @@ import { HEROES } from './mock-heroes';
 })
 export class HeroService {
 
-  getHeroes(): Hero[] {
-    return HEROES;
+  /** Must have an asynchronous signature if retrieving data from a server */
+  getHeroes(): Observable<Hero[]> {
+    /** return HEROES; */
+    const heroes = of(HEROES);
+    this.messageService.add('HeroService: fetched heroes');
+    return heroes;
   }
 
-  constructor() { }
+  constructor(private messageService: MessagesService) { }
 }
