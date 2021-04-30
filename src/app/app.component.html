@@ -2,7 +2,13 @@
 <!--Double curly braces are Angular's interpolation biding syntax-->
 <!--Component's title property is presented inside the h1 header's tag-->
 
+<!--Turns user clicks into router navigations-->
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <p></p>
+  <a routerLink="/heroes">Heroes</a>
+</nav>
 
-<!--Remember, app-heroes is the element selector for HeroesComponent, below should display HeroesComponent-->
-<app-heroes></app-heroes>
+<!--Place router-outlet here instead of app-heroes, b/c app will only display HeroesComponent when user navigates to it-->
+<router-outlet></router-outlet>
 <app-messages></app-messages>

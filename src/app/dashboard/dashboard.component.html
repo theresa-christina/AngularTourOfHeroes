@@ -1,0 +1,7 @@
+<h2>Top Heroes</h2>
+<div class="heroes-menu">
+    <!--Using interpolation binding w/ *ngFor inserts current iteration's hero.id into each routerLink-->
+    <a *ngFor="let hero of heroes" routerLink="/detail/{{hero.id}}">
+      {{hero.name}}
+    </a>
+</div>
