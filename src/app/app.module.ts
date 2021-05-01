@@ -10,6 +10,12 @@ import { MessagesComponent } from './messages/messages.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component'; // NgModel lives here
 
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+
+/** intercepts HTTP requests and returns simulated server responses - remove when a real server is ready */
+import { InMemoryDataService } from './in-memory-data.service';
+
 // Every component must be declared in exactly ONE NgModule
 @NgModule({
   declarations: [
@@ -22,7 +28,9 @@ import { DashboardComponent } from './dashboard/dashboard.component'; // NgModel
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, { dataEncapsulation: false })
   ],
   providers: [],
   bootstrap: [AppComponent]
