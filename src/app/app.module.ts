@@ -15,6 +15,7 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 /** intercepts HTTP requests and returns simulated server responses - remove when a real server is ready */
 import { InMemoryDataService } from './in-memory-data.service';
+import { HeroSearchComponent } from './hero-search/hero-search.component';
 
 // Every component must be declared in exactly ONE NgModule
 @NgModule({
@@ -23,7 +24,8 @@ import { InMemoryDataService } from './in-memory-data.service';
     HeroesComponent,
     HeroDetailComponent,
     MessagesComponent,
-    DashboardComponent
+    DashboardComponent,
+    HeroSearchComponent
   ],
   imports: [
     BrowserModule,
